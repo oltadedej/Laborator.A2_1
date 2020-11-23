@@ -11,6 +11,7 @@ namespace PhoneBook.Core
         static void Main(string[] args)
         {
             //neziri
+            // funksionon
           
         }
     }
