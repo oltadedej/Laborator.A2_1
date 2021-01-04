@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <label> Ju lutem shkruani nje fjali:</label> 
+    <input type="text"  id="fjalia"/>
+    <br/> 
+    <button id="btn1" onclick="ZevendesoFjalen()"> Zevendeso fjalen</button>
+    <br/>
+    <label id="afishimRezultati"></label>
+
+
+
+
+
+    <script>
+        function ZevendesoFjalen() {
+            debugger;
+            var fjalia = document.getElementById("fjalia").value;
+            var fjalia_Re = "";
+            if (fjalia !== null && fjalia !== "" && fjalia !== "undefined") {
+
+                if (fjalia.length >= 10) {
+                     fjalia_Re = "Miresevini" + fjalia.slice(9, fjalia.length); // merr nga pozicioni 9 deri ne fund te fjales
+                }
+                else {
+                    fjalia_Re = fjalia + " " + "Fjalia permban me pak se 10 karaktere"
+                }
+            }
+            afishimRezultati.innerHTML = fjalia_Re;
+        }
+    </script>
+</body>
+</html>

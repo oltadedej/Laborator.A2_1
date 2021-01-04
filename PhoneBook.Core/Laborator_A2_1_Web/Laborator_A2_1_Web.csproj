@@ -75,12 +75,17 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Img\download.jpg" />
+    <Content Include="Img\download_new.png" />
     <Content Include="Laborator2\KonvertimiNeOre.html" />
     <Content Include="Laborator2\Ushtrim1Js.html" />
     <Content Include="Laborator2\Ushtrimi1_Web_Forms.aspx" />
     <Content Include="Laborator2\Ushtrimi2_Web_Forms.aspx" />
     <Content Include="Laborator2\Ushtrimi3_Web_Forms.aspx" />
     <Content Include="Laborator2\VisibilitetiILabelave.aspx" />
+    <Content Include="Laborator3\DSH_Change_IMG.aspx" />
+    <Content Include="Laborator3\TxtChanged.aspx" />
+    <Content Include="Laborator3\DSH_ZevendoFjalen.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -220,6 +225,20 @@
     </Compile>
     <Compile Include="Laborator2\VisibilitetiILabelave.aspx.designer.cs">
       <DependentUpon>VisibilitetiILabelave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Laborator3\DSH_Change_IMG.aspx.cs">
+      <DependentUpon>DSH_Change_IMG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Laborator3\DSH_Change_IMG.aspx.designer.cs">
+      <DependentUpon>DSH_Change_IMG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Laborator3\TxtChanged.aspx.cs">
+      <DependentUpon>TxtChanged.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Laborator3\TxtChanged.aspx.designer.cs">
+      <DependentUpon>TxtChanged.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
