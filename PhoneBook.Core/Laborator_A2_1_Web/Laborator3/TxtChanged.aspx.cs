@@ -16,6 +16,7 @@ namespace Laborator_A2_1_Web.Laborator3
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
+            Label1.Text = string.Empty;
             if (!String.IsNullOrEmpty(TextBox1.Text))
             {
                 if (TextBox1.Text.Contains(" "))

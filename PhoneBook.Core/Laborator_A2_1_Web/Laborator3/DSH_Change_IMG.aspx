@@ -19,7 +19,7 @@
             <br />
 
             <asp:Panel ID="Panel1" runat="server">
-                <asp:Image ID="Image1" runat="server" AlternateText="Imazhi Asp.NET" ImageUrl="~/Img/download.jpg" />
+                <asp:Image ID="Image1" runat="server" AlternateText="Imazhi Asp.NET"  ImageUrl="~/Img/download.jpg" />
             </asp:Panel>
             <br />
 

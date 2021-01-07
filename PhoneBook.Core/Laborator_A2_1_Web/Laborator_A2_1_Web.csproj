@@ -83,6 +83,7 @@
     <Content Include="Laborator2\Ushtrimi2_Web_Forms.aspx" />
     <Content Include="Laborator2\Ushtrimi3_Web_Forms.aspx" />
     <Content Include="Laborator2\VisibilitetiILabelave.aspx" />
+    <Content Include="Laborator3\Ddl_Selected_Red_Color.aspx" />
     <Content Include="Laborator3\DSH_Change_IMG.aspx" />
     <Content Include="Laborator3\TxtChanged.aspx" />
     <Content Include="Laborator3\DSH_ZevendoFjalen.html" />
@@ -226,6 +227,13 @@
     <Compile Include="Laborator2\VisibilitetiILabelave.aspx.designer.cs">
       <DependentUpon>VisibilitetiILabelave.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Laborator3\Ddl_Selected_Red_Color.aspx.cs">
+      <DependentUpon>Ddl_Selected_Red_Color.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Laborator3\Ddl_Selected_Red_Color.aspx.designer.cs">
+      <DependentUpon>Ddl_Selected_Red_Color.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Laborator3\DSH_Change_IMG.aspx.cs">
       <DependentUpon>DSH_Change_IMG.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,6 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Laborator3\Domain\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
