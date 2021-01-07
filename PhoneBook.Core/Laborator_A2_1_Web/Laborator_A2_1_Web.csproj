@@ -85,6 +85,7 @@
     <Content Include="Laborator2\VisibilitetiILabelave.aspx" />
     <Content Include="Laborator3\Ddl_Selected_Red_Color.aspx" />
     <Content Include="Laborator3\DSH_Change_IMG.aspx" />
+    <Content Include="Laborator3\MenaxhoRecordePhoneBooks.aspx" />
     <Content Include="Laborator3\TxtChanged.aspx" />
     <Content Include="Laborator3\DSH_ZevendoFjalen.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -234,12 +235,21 @@
     <Compile Include="Laborator3\Ddl_Selected_Red_Color.aspx.designer.cs">
       <DependentUpon>Ddl_Selected_Red_Color.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Laborator3\Domain\Configurations.cs" />
+    <Compile Include="Laborator3\Domain\PhoneBook.cs" />
     <Compile Include="Laborator3\DSH_Change_IMG.aspx.cs">
       <DependentUpon>DSH_Change_IMG.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Laborator3\DSH_Change_IMG.aspx.designer.cs">
       <DependentUpon>DSH_Change_IMG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Laborator3\MenaxhoRecordePhoneBooks.aspx.cs">
+      <DependentUpon>MenaxhoRecordePhoneBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Laborator3\MenaxhoRecordePhoneBooks.aspx.designer.cs">
+      <DependentUpon>MenaxhoRecordePhoneBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Laborator3\TxtChanged.aspx.cs">
       <DependentUpon>TxtChanged.aspx</DependentUpon>
@@ -267,9 +277,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Laborator3\Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
