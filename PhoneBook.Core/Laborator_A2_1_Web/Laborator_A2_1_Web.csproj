@@ -232,6 +232,15 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization.cs">
+      <DependentUpon>UniversityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>UniversityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment.cs">
+      <DependentUpon>UniversityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Laborator2\Ushtrimi1_Web_Forms.aspx.cs">
       <DependentUpon>Ushtrimi1_Web_Forms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
