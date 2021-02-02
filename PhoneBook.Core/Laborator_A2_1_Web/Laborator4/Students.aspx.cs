@@ -30,8 +30,8 @@ namespace Laborator_A2_1_Web.Laborator4
 
                     //do what you want with admin or not
                     gdvStudent.Columns[0].Visible = false;
-                }
             }
+        }
         }
 
         protected void gdvStudent_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -102,7 +102,7 @@ namespace Laborator_A2_1_Web.Laborator4
                     break;
 
                 case "DetailStudent":
-                    Response.Redirect("Afisho.aspx?studentId=" + e.CommandArgument.ToString());
+                     Response.Redirect("Afisho.aspx?studentId=" + e.CommandArgument.ToString());
                     break;
                 //add other cases for other buttons
 
