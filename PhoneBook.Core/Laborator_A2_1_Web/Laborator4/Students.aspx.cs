@@ -117,7 +117,7 @@ namespace Laborator_A2_1_Web.Laborator4
         {
             if (Tokens.IsAdmin)
             {
-                return false;
+                return true;
             }
             else { return false; }
         }
@@ -125,6 +125,8 @@ namespace Laborator_A2_1_Web.Laborator4
         protected void btnLogOut_Click(object sender, EventArgs e)
         {
             Session["User"] = null;
+            Session["IsAdmin"] = null;
+            HttpContext.Current.Session["UserAuthorization"] = null;
             Response.Redirect("~/Laborator5/LoginUser.aspx");
         }
     }

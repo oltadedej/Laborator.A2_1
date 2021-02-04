@@ -6,54 +6,87 @@ namespace Laborator_A2_1_Web.Laborator5
 {
     public static class Tokens
     {
-        public static User User
+
+        //useri i loguar ne sistem
+        //merret sessioni dhe konvertohet ne nje objekt te tipit user
+        // nuk ruaj vec usernamen ruaj komplet objektin user ne session
+        public static User LoggedUser
         {
             get
             {
-                if (HttpContext.Current.Session["User"] != null) return (User)(HttpContext.Current.Session["User"]);
-                else return null;
+                if (HttpContext.Current.Session["User"] != null)
+                    return (User)HttpContext.Current.Session["User"];
+
+                else
+                {
+                    return null;
+
+                };
             }
+
             set
             {
-                if (User != null)
+                if (LoggedUser != null)
+                {
                     HttpContext.Current.Session["User"] = (User)HttpContext.Current.Session["User"];
-
+                }
             }
         }
 
-        public static List<Authorization> User_Authorizations
+        public static List<Authorization> UserAuthorization
         {
             get
             {
-                if (HttpContext.Current.Session["User_Authorizations"] == null)
+                if (HttpContext.Current.Session["UserAuthorization"] == null)
                 {
                     using (University1Entities dbcontext = new University1Entities())
                     {
-                        var results = from user_authorizaton in dbcontext.User_Authorization
-                                      join authorization
-                                        in dbcontext.Authorizations on user_authorizaton.AuthorizationId equals authorization.AuthorizationId
-                                      where user_authorizaton.UserId == User.UserId
-                                      select authorization;
-                        HttpContext.Current.Session["User_Authorizations"] = results.ToList<Authorization>();
+                        var results = from user_authorz in dbcontext.User_Authorization
+                                      join authoriz in dbcontext.Authorizations on user_authorz.AuthorizationId equals authoriz.AuthorizationId
 
+                                      where user_authorz.UserId == LoggedUser.UserId
+                                      select authoriz;
+
+                        HttpContext.Current.Session["UserAuthorization"] = results.ToList<Authorization>();
                     }
+
                 }
-                return (List<Authorization>)(HttpContext.Current.Session["User_Authorizations"]);
+                return (List<Authorization>)HttpContext.Current.Session["UserAuthorization"];
+
             }
         }
 
 
+        //rasti kur keni tabelen user_authorization
         public static bool IsAdmin
         {
             get
             {
-                if (User_Authorizations != null)
+                if (UserAuthorization != null)
                 {
-                    HttpContext.Current.Session["IsAdmin"] = User_Authorizations.Any(i => i.Description.Equals("Admin"));
+                    HttpContext.Current.Session["IsAdmin"] = UserAuthorization.Any(i => i.Description.Equals("Admin"));
                 }
-                return (bool)(HttpContext.Current.Session["IsAdmin"]);
+                return (bool)HttpContext.Current.Session["IsAdmin"];
             }
         }
+
+
+
+        //rasti kur keni ndarjen e adminit dhe readerit me role
+
+        //public static bool IsAdminWithRoles
+        //{
+        //    get
+        //    {
+        //        if (LoggedUser != null)
+        //        {
+        //            HttpContext.Current.Session["IsAdmin"] = (bool)LoggedUser.Role;
+        //        }
+        //        return (bool)HttpContext.Current.Session["IsAdmin"];
+        //    }
+        //}
+
+
 
     }
 }
