@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
 
 
@@ -24,21 +24,21 @@ namespace Laborator_A2_1_Web.Laborator4
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// gdvStudent control.
+        /// gdvstudents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvStudent;
+        protected global::System.Web.UI.WebControls.GridView gdvstudents;
 
         /// <summary>
-        /// btnLogOut control.
+        /// LogOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogOut;
+        protected global::System.Web.UI.WebControls.Button LogOut;
     }
 }

@@ -1,83 +1,92 @@
-﻿using System;
+﻿using Laborator_A2_1_Web;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
-    public partial class modifikoStudent : System.Web.UI.Page
+    public partial class ModifikoStudent : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                var studentid = Request.QueryString["studentId"];
-                if (studentid != null)
+                int std = Convert.ToInt32(Request.QueryString["idStudent"]);
+
+                using (University1Entities dbcontext = new University1Entities())
                 {
-                    int studentId = Convert.ToInt32(studentid);
-                    using (University1Entities dbcontext = new University1Entities())
-                    {
-                        var student = dbcontext.Students.ToList().FirstOrDefault(i => i.StudentId == studentId);
-                        if (student != null)
-                        {
-                            txtName.Text = student.Emer;
-                            txtSurname.Text = student.Mbiemer;
-                            txtEnrollmentDate.Text = student.EnrollmentDate.ToString("dd/MM/yyyy");
-                        }
-                    }
+                    Student stdudent_ = dbcontext.Students.ToList().Where(i => i.StudentId == std).FirstOrDefault();
+                    txtName.Text = stdudent_.Emer;
+                    txtSurname.Text = stdudent_.Mbiemer;
+                    txtEnrollmentDate.Text = stdudent_.EnrollmentDate.ToString("dd/MM/yyyy");
+
+
+
                 }
+
+
             }
+
         }
 
-        protected void btnModiko_Click(object sender, EventArgs e)
+        protected void btnModifikoStudent_Click(object sender, EventArgs e)
         {
-            var studentid = Request.QueryString["studentId"];
-            if (studentid != null)
+            bool isOk = true;
+
+            try
             {
-                int studentId = Convert.ToInt32(studentid);
-                if (studentId != 0)
+                using (University1Entities dbcontext = new University1Entities())
                 {
-                    bool isOk = true;
-                    try
+                    //gjejme indexin e elementit per modifikim
+                    int itemIndexToModify = dbcontext.Students.ToList().FindIndex(i => i.StudentId == Convert.ToInt32(Request.QueryString["idStudent"].ToString()));
+
+                    if (!String.IsNullOrEmpty(txtName.Text))
                     {
-
-
-                        using (University1Entities entities = new University1Entities())
-                        {
-                            int itemIndex = entities.Students.ToList().FindIndex(item => item.StudentId == studentId);
-
-                            if (!String.IsNullOrEmpty(txtName.Text))
-                            {
-                                entities.Students.ToList()[itemIndex].Emer = txtName.Text;
-                            }
-                            if (!String.IsNullOrEmpty(txtSurname.Text))
-                            {
-                                entities.Students.ToList()[itemIndex].Mbiemer = txtSurname.Text;
-                            }
-                            if (!String.IsNullOrEmpty(txtEnrollmentDate.Text))
-                            {
-                                entities.Students.ToList()[itemIndex].EnrollmentDate = Convert.ToDateTime(txtEnrollmentDate.Text);
-                            }
-
-                            entities.SaveChanges();
-                        }
-
+                        dbcontext.Students.ToList()[itemIndexToModify].Emer = txtName.Text;
                     }
-                    catch (Exception ex)
+                    if (!String.IsNullOrEmpty(txtSurname.Text))
                     {
-                        isOk = false;
+                        dbcontext.Students.ToList()[itemIndexToModify].Mbiemer = txtSurname.Text;
                     }
 
-                    if (isOk) Response.Redirect("Students.aspx");
-                    else
+
+                    if (!String.IsNullOrEmpty(txtEnrollmentDate.Text))
                     {
-                        error.Text = "Probleme gjate modifikimit te studentit";
+                        // dbcontext.Students.ToList()[itemIndexToModify].EnrollmentDate = Convert.ToDateTime(txtEnrollmentDate.Text);
+
+                        //zgjidhja e problematikes me daten ne formatin dd/MM/yyyy qe marrim nga webi, dmth konvertimi i tekstit ne date
+
+                        dbcontext.Students.ToList()[itemIndexToModify].EnrollmentDate = DateTime.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
                     }
+
+                    //ruan ndryshimnet ne baze te dhenash
+                    dbcontext.SaveChanges();
+
+
                 }
+
             }
+
+            catch (Exception ex)
+            {
+                //  throw ex;
+                isOk = false;
+
+            }
+            if (isOk) Response.Redirect("Students.aspx");
+            else lblError.Text = "Gabime gjate perditesimit te studentit";
+        }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            Session["username"] = null;
+            Session["Password"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

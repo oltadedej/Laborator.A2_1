@@ -1,4 +1,6 @@
-﻿using Laborator_A2_1_Web.Laborator5;
+﻿
+using Laborator_A2_1_Web;
+using Laborator_A2_1_Web.Laborator5;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,128 +8,140 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
     public partial class Students : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Tokens.User == null)
-            {
-                Response.Redirect("~/Laborator5/LoginUser.aspx");
-            }
-
             if (!Page.IsPostBack)
             {
-                using (University1Entities universityContext = new University1Entities())
-                {
-                    gdvStudent.DataSource = universityContext.Students.ToList();
-                    gdvStudent.DataBind();
-                }
-
-                if (Tokens.IsAdmin)
+                if (Tokens.LoggedUser != null)
                 {
 
-                    //do what you want with admin or not
-                    gdvStudent.Columns[0].Visible = false;
-            }
-        }
-        }
-
-        protected void gdvStudent_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            // GridView gv = (GridView)sender;
-            // GridViewRow row = (GridViewRow)gdvStudent.Rows[e.RowIndex];
-
-            int idStudentToDelete = (int)gdvStudent.DataKeys[e.RowIndex].Value;
-            using (University1Entities dbcontext = new University1Entities())
-            {
-                Student st = null;
-                st = dbcontext.Students.ToList().FirstOrDefault(c => c.StudentId == idStudentToDelete);
-                if (st != null)
-                {
-                    dbcontext.Students.Remove(st);
-                    dbcontext.SaveChanges();
-                    gdvStudent.DataSource = dbcontext.Students.ToList();
-                    gdvStudent.DataBind();
-                }
-
-            }
-
-        }
-
-        protected void gdvStudent_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            //ka 2 menyra, ti beni dataitem as student se student eshte data member
-            //ose te merrni id e me pas te beni kontroll tek lista per ket student
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                if (Tokens.IsAdmin)
-                {
-                    e.Row.Cells[0].Controls[0].Visible = false;
-                }
-
-                Student student = e.Row.DataItem as Student;
-
-                Label lblMessage = new Label();
-                lblMessage = e.Row.FindControl("lbMsg") as Label;
-                DateTime dt = new DateTime(2020, 10, 01);
-                if (student.EnrollmentDate > dt)
-                {
-                    if (lblMessage != null)
+                    // krijimi i lidhjes me bazen e te dhenave
+                    using (University1Entities dbcontext = new University1Entities())
                     {
-                        lblMessage.Text = "Regjistrimi me vonese";
-                        lblMessage.ForeColor = System.Drawing.Color.Red;
+
+                        gdvstudents.DataSource = dbcontext.Students.ToList();
+                        gdvstudents.DataBind();
+
+
                     }
                 }
                 else
                 {
-                    if (lblMessage != null)
-                    {
-                        lblMessage.Text = "Regjistrimi ne kohe";
-                        lblMessage.ForeColor = System.Drawing.Color.Green;
-                    }
+                    Response.Redirect("~/Laborator5/LoginUser.aspx");
                 }
+
             }
 
         }
 
+        protected void gdvstudents_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int idStudentToDelete = (int)gdvstudents.DataKeys[e.RowIndex].Value;
+
+            using (University1Entities dbcontext = new University1Entities())
+            {
+                Student std = dbcontext.Students.ToList().FirstOrDefault(i => i.StudentId == idStudentToDelete);
+
+                dbcontext.Students.Remove(std);
+                dbcontext.SaveChanges();
+
+                gdvstudents.DataSource = dbcontext.Students.ToList();
+                gdvstudents.DataBind();
+
+            }
+        }
+
+        protected void gdvstudents_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            // specifikon nese jemi duke bredhur rreshtat e gridvies -- i behet skip headerit te gridviews
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Student std = e.Row.DataItem as Student;
+                Label lbl = new Label();
+                lbl = e.Row.FindControl("lblMessage") as Label; //ruhet referenca e labelit ne front-end
+                if (lbl != null)
+                {
+                    DateTime dtToCompare = new DateTime(2020, 10, 1); //"2020-10-01 --01/10/2020"
+                    if (std.EnrollmentDate > dtToCompare)
+                    {
+                        lbl.Text = "Regjistrimi me vonese";
+                        lbl.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        lbl.Text = "Regjistrimi ne kohe";
+                        lbl.ForeColor = System.Drawing.Color.Green;
+                    }
+
+                    //menyra e pare-- ruaj referencen per butonin
+                    //Button btn = new Button();
+                    //btn = e.Row.FindControl("Btmodifiko") as Button;
+                    //btn.PostBackUrl = "ModifikoStudent.aspx?idstudent=" + std.StudentId;
+                }
+
+
+
+            }
+
+        }
 
         protected void gdvButtons_Command(object sender, CommandEventArgs e)
         {
+            //menyra e dyte nepermjet komandes
             switch (e.CommandName)
             {
                 case "ModifikoStudent":
-                    Response.Redirect("modifikoStudent.aspx?studentId=" + e.CommandArgument.ToString());
+                    Response.Redirect("ModifikoStudent.aspx?idStudent=" + e.CommandArgument.ToString());
                     break;
 
                 case "DetailStudent":
-                     Response.Redirect("Afisho.aspx?studentId=" + e.CommandArgument.ToString());
+                    Response.Redirect("AfishoStudent.aspx?idStudent=" + e.CommandArgument.ToString());
                     break;
-                //add other cases for other buttons
-
-
                 default:
                     break;
+
+
             }
+
         }
 
-
-        protected bool Visibility_EditButton()
+        public bool Visibility_Edit_Button()
         {
             if (Tokens.IsAdmin)
             {
                 return true;
+
             }
-            else { return false; }
+
+            else return false;
+
         }
 
-        protected void btnLogOut_Click(object sender, EventArgs e)
+
+        public bool CanViewStudentDetail()
         {
+            if (Tokens.UserAuthorization.Any(i => i.Equals("DetailStudent")))
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            //nxjerr perdoruesin nga sistemi
+
             Session["User"] = null;
             Session["IsAdmin"] = null;
             HttpContext.Current.Session["UserAuthorization"] = null;
             Response.Redirect("~/Laborator5/LoginUser.aspx");
+
+
+
         }
     }
 }

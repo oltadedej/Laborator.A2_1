@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
 
 
-    public partial class Dsh_Perditeso_Record
+    public partial class DSH_Perditeso_Record
     {
 
         /// <summary>

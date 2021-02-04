@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
 
 
-    public partial class Afisho
+    public partial class AfishoStudent
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace Laborator_A2_1_Web.Laborator4
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// pnlDetail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDetail;
 
         /// <summary>
         /// lblName control.

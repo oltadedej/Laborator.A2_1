@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
 
 
-    public partial class modifikoStudent
+    public partial class ModifikoStudent
     {
 
         /// <summary>
@@ -33,15 +33,6 @@ namespace Laborator_A2_1_Web.Laborator4
         protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
-        /// rqfName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfName;
-
-        /// <summary>
         /// txtSurname control.
         /// </summary>
         /// <remarks>
@@ -49,15 +40,6 @@ namespace Laborator_A2_1_Web.Laborator4
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSurname;
-
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// txtEnrollmentDate control.
@@ -69,39 +51,39 @@ namespace Laborator_A2_1_Web.Laborator4
         protected global::System.Web.UI.WebControls.TextBox txtEnrollmentDate;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// reg1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reg1;
 
         /// <summary>
-        /// regular control.
+        /// btnModifikoStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regular;
+        protected global::System.Web.UI.WebControls.Button btnModifikoStudent;
 
         /// <summary>
-        /// btnModiko control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModiko;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// error control.
+        /// LogOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error;
+        protected global::System.Web.UI.WebControls.Button LogOut;
     }
 }

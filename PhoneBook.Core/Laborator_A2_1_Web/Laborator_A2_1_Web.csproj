@@ -100,9 +100,9 @@
     <Content Include="Laborator3\MenaxhoRecordePhoneBooks.aspx" />
     <Content Include="Laborator3\TxtChanged.aspx" />
     <Content Include="Laborator3\DSH_ZevendoFjalen.html" />
-    <Content Include="Laborator4\Afisho.aspx" />
-    <Content Include="Laborator4\Dsh_Perditeso_Record.aspx" />
-    <Content Include="Laborator4\modifikoStudent.aspx" />
+    <Content Include="Laborator4\AfishoStudent.aspx" />
+    <Content Include="Laborator4\DSH_Perditeso_Record.aspx" />
+    <Content Include="Laborator4\ModifikoStudent.aspx" />
     <Content Include="Laborator4\Students.aspx" />
     <Content Include="Laborator5\AddUser.aspx" />
     <Content Include="Laborator5\LoginUser.aspx" />
@@ -295,26 +295,26 @@
     <Compile Include="Laborator3\TxtChanged.aspx.designer.cs">
       <DependentUpon>TxtChanged.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Laborator4\Afisho.aspx.cs">
-      <DependentUpon>Afisho.aspx</DependentUpon>
+    <Compile Include="Laborator4\AfishoStudent.aspx.cs">
+      <DependentUpon>AfishoStudent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Laborator4\Afisho.aspx.designer.cs">
-      <DependentUpon>Afisho.aspx</DependentUpon>
+    <Compile Include="Laborator4\AfishoStudent.aspx.designer.cs">
+      <DependentUpon>AfishoStudent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Laborator4\Dsh_Perditeso_Record.aspx.cs">
-      <DependentUpon>Dsh_Perditeso_Record.aspx</DependentUpon>
+    <Compile Include="Laborator4\DSH_Perditeso_Record.aspx.cs">
+      <DependentUpon>DSH_Perditeso_Record.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Laborator4\Dsh_Perditeso_Record.aspx.designer.cs">
-      <DependentUpon>Dsh_Perditeso_Record.aspx</DependentUpon>
+    <Compile Include="Laborator4\DSH_Perditeso_Record.aspx.designer.cs">
+      <DependentUpon>DSH_Perditeso_Record.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Laborator4\modifikoStudent.aspx.cs">
-      <DependentUpon>modifikoStudent.aspx</DependentUpon>
+    <Compile Include="Laborator4\ModifikoStudent.aspx.cs">
+      <DependentUpon>ModifikoStudent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Laborator4\modifikoStudent.aspx.designer.cs">
-      <DependentUpon>modifikoStudent.aspx</DependentUpon>
+    <Compile Include="Laborator4\ModifikoStudent.aspx.designer.cs">
+      <DependentUpon>ModifikoStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Laborator4\Students.aspx.cs">
       <DependentUpon>Students.aspx</DependentUpon>

@@ -6,9 +6,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Laborator_A2_1_Web.Laborator4
+namespace Laborator_A2_2_WEB.Laborator4
 {
-    public partial class Dsh_Perditeso_Record : System.Web.UI.Page
+    public partial class DSH_Perditeso_Record : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,8 +17,8 @@ namespace Laborator_A2_1_Web.Laborator4
                 Configurations configuration = new Configurations();
 
                 ddl1.DataSource = configuration.phoneBooks; // si burimi i te dhenave
-                ddl1.DataTextField = "PhoneBookPersonName";  // eshte specifikimi i tekstit qe ka itemi i dropdown listes
-                ddl1.DataValueField = "IdPhoneBook"; // eshte specifikimi i vleres per ddl
+                ddl1.DataTextField = "PhoneBookPersonName";
+                ddl1.DataValueField = "IdPhoneBook";
                 ddl1.DataBind(); // mundeson qe burimi i te dhenave te shfaqet ne web
             }
 
@@ -52,8 +52,8 @@ namespace Laborator_A2_1_Web.Laborator4
                     con.phoneBooks[index] = itemToModify;
                 }
                 ddl1.DataSource = con.phoneBooks; // si burimi i te dhenave
-                ddl1.DataTextField = "PhoneBookPersonName";  // eshte specifikimi i tekstit qe ka itemi i dropdown listes
-                ddl1.DataValueField = "IdPhoneBook"; // eshte specifikimi i vleres per ddl
+                ddl1.DataTextField = "PhoneBookPersonName";
+                ddl1.DataValueField = "IdPhoneBook";
                 ddl1.DataBind(); // mundeson qe burimi i te dhenave te shfaqet ne web
 
             }
